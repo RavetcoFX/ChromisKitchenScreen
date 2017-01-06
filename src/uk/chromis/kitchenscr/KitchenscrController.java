@@ -442,13 +442,16 @@ public class KitchenscrController implements Initializable {
 
                 //Horrible Shity hack to stop displaying drinks
                 if (!"004 Ayran".equals(order.getDetails()) && !"005 Becks".equals(order.getDetails()) && !"006 Water".equals(order.getDetails()) && 1 != order.getAuxiliary()) {
-                	KitchenscrController.orderLists.get(j).add((order.getQty() > 1 ? order.getQty() + " x " : "") + order.getDetails().replaceAll("\\d", "").replaceAll("\\s", ""));
+                	KitchenscrController.orderLists.get(j).add((order.getQty() > 1 ? order.getQty() + " x " : "") + order.getDetails().replaceAll("\\d", "").replaceAll("\\s", "").replaceAll("\\-%", ""));
                 }
                 if (1 == order.getAuxiliary()) {
-                    KitchenscrController.orderLists.get(j).add(" ~~ " + order.getDetails().replaceAll("\\+", "").replaceAll("\\s", ""));
+                    KitchenscrController.orderLists.get(j).add(" ~ " + order.getDetails().replaceAll("\\+", "").replaceAll("\\s", "").replaceAll("\\-%", ""));
+                }
+                if (!"".equals(order.getAttributes())) {
+                    KitchenscrController.orderLists.get(j).add(" ~ " + order.getAttributes());
                 }
                 if (order.getNotes() != null) {
-                    KitchenscrController.orderLists.get(j).add(" ~~ " + order.getNotes());
+                    KitchenscrController.orderLists.get(j).add(" ~ " + order.getNotes());
                 }
             }
         }
