@@ -1,17 +1,23 @@
 /*
  Chromis POS  - The New Face of Open Source POS
  Copyright (c) 2015 (John Lewis) Chromis.co.uk
+
  http://www.chromis.co.uk
+
  kitchen Screen v1.5
+
  This file is part of chromis & its associated programs
+
  chromis is free software: you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
  the Free Software Foundation, either version 3 of the License, or
  (at your option) any later version.
+
  chromis is distributed in the hope that it will be useful,
  but WITHOUT ANY WARRANTY; without even the implied warranty of
  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  GNU General Public License for more details.
+
  You should have received a copy of the GNU General Public License
  along with chromis.  If not, see <http://www.gnu.org/licenses/>.
  */
@@ -28,7 +34,7 @@
     -fx-control-inner-background: -fx-base;
     -fx-control-inner-background-alt: -fx-base;
     -fx-faint-focus-color: -fx-accent;
-    -fx-hover-base: yellow;
+    -fx-hover-base: white;
     -fx-pressed-base: derive(-fx-hover-base, -18%);
     -fx-box-border: -fx-hover-base;
     -fx-text-box-border: -fx-hover-base;
@@ -37,67 +43,62 @@
     -fx-light-text-color: -fx-hover-base;
     -fx-mark-color: ladder(
         -fx-color,
-        yellow 60%,
+        white 60%,
         derive(-fx-color,-63%) 31%
     );
     -fx-selection-bar-non-focused: derive(-fx-hover-base, -80%);
     -fx-contrast-color: white;
-}
-
-.order_id, .order_timer {
-    -fx-font: 13pt "Tahoma";
-    -fx-font-weight: bold;
+    -fx-font-size: 16pt;
+    -fx-font-family: "Courier New";
 }
 
 
-.orders_waiting {
-    -fx-font: 12pt "Tahoma";
-    -fx-font-weight: bold;
+.list-view {
 }
-
 
 .list-cell 
 {
-    -fx-font: 10pt "Arial";
-    -fx-font-weight: bold;
+  -fx-font-size: 16pt;
+  -fx-font-weight: bold;
 }
-
-.clock{
-    -fx-font: 24pt "Arial";
-    -fx-font-weight: bold;    
+.list-cell:even {
+	-fx-background-color: #0F0F0F;
 }
-
-
-.complete_button {
-    -fx-font: 18pt "Tahoma";
-    -fx-font-weight: bold;
+.list-cell:odd {
+	-fx-background-color: #1F1F1F;
 }
 
 .clock {
-  -fx-font-size: 26pt;
+  -fx-font-size: 24pt;
   -fx-font-weight: bold;    
-  -fx-padding: 2px;
 }
 
 
 .label.order_id, .order_timer {
-    -fx-font-size: 16pt;
+    -fx-font-size: 17pt;
+	-fx-text-fill: black;
+	-fx-font-weight: bold;
+
 }
 
 .orders_waiting {
-    -fx-font-size: 14pt;
+    -fx-font-size: 17pt;
+	-fx-text-fill: black;
+	-fx-font-weight: bold;
 }
 
 
 .recall, .exit {
-    -fx-font: 18pt "Tahoma";
+    -fx-font-size: 17pt;
     -fx-font-weight: bold;
-    -fx-padding: 4px 8px 4px 8px;
+	-fx-padding: 4px 8px 4px 8px;
 }
 
+.complete_button {
+	-fx-font-size: 20pt;
+	-fx-font-weight: bold;
+}
 
-.bump_bar {
-    -fx-font-size: 18pt;
-    -fx-font-weight: bold;
-    -fx-padding: 2px;
+.order_header, .waiting_header {
+	-fx-background-color: #BBBBBB;
 }

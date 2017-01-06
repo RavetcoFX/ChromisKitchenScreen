@@ -26,6 +26,7 @@ package uk.chromis.configuration;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -33,8 +34,11 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -48,6 +52,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.input.KeyCombination.ModifierValue;
+import javafx.stage.FileChooser;
 import liquibase.Liquibase;
 import liquibase.database.Database;
 import liquibase.database.DatabaseFactory;
@@ -93,6 +98,10 @@ public class DatabaseController implements Initializable {
     @FXML
     private ChoiceBox jchcExitAction;
     private Integer selectedExitActionIndex = null;
+    @FXML
+    private TextField jtxtCSSFile;
+    @FXML
+    private Button jbtnChooseCSS;
     
     @FXML
     private KeyComboTextField jtxtMapSelOrd1;
@@ -133,7 +142,7 @@ public class DatabaseController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-     
+           
         jcboDBDriver.valueProperty().addListener(dirty);
         displayNumber.valueProperty().addListener(dirty);
         jtxtDbDriver.textProperty().addListener(dirty);
@@ -145,6 +154,7 @@ public class DatabaseController implements Initializable {
         jtxtClockFormat.textProperty().addListener(dirty);
         historyCount.valueProperty().addListener(dirty);
         jchcExitAction.valueProperty().addListener(dirty);
+        //jtxtCSSFile.textProperty().addListener(dirty);
         jtxtMapSelOrd1.textProperty().addListener(dirty);
         jtxtMapSelOrd2.textProperty().addListener(dirty);
         jtxtMapSelOrd3.textProperty().addListener(dirty);
@@ -231,6 +241,21 @@ public class DatabaseController implements Initializable {
                     }
                 }
             }
+        });
+        
+        
+        
+        jbtnChooseCSS.setOnAction((final ActionEvent e) -> {
+            FileChooser fileChooser = new FileChooser();
+            fileChooser.setTitle("Select .CSS theme file");
+            FileChooser.ExtensionFilter extensionFilter = new FileChooser.ExtensionFilter("CSS Files (*.css)", "*.css");
+            fileChooser.getExtensionFilters().add(extensionFilter);
+            File themeDir = new File("resources\\themes\\");
+            if ( themeDir.exists() )
+                fileChooser.setInitialDirectory(themeDir);
+            File returnFile = fileChooser.showOpenDialog(((Node)e.getTarget()).getScene().getWindow()); 
+            if ( returnFile != null )
+                jtxtCSSFile.setText(returnFile.getAbsoluteFile().toString());
         });
 
 	
@@ -352,6 +377,11 @@ public class DatabaseController implements Initializable {
         jtxtMapRecall.setKeyCodeCombination(keyComboRecall);
         jtxtMapExit.setKeyCodeCombination(keyComboExit);
         
+        
+        jtxtCSSFile.setText(AppConfig.getInstance().getProperty("screen.themefile"));
+        
+        //jtxtCSSFile.setText(AppConfig.getInstance().getProperty("screen.themefile"));
+        
         dirty.resetDirty();
         
     }
@@ -397,6 +427,8 @@ public class DatabaseController implements Initializable {
         AppConfig.getInstance().setProperty("keymap.complete", jtxtMapComplete.getKeyCodeCombination().toString());
         AppConfig.getInstance().setProperty("keymap.exit", jtxtMapExit.getKeyCodeCombination().toString());
         AppConfig.getInstance().setProperty("keymap.recall", jtxtMapRecall.getKeyCodeCombination().toString());
+        
+        AppConfig.getInstance().setProperty("screen.themefile", jtxtCSSFile.getText());
         
         AppConfig.getInstance().save();        
         

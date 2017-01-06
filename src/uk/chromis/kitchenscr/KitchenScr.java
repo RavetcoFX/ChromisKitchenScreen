@@ -23,6 +23,7 @@
  */
 package uk.chromis.kitchenscr;
 
+import java.io.File;
 import java.util.List;
 import java.util.Optional;
 import javafx.application.Application;
@@ -127,6 +128,27 @@ public class KitchenScr extends Application {
         KitchenscrController myController = (KitchenscrController) fxmlLoader.getController();
 
         Scene myScene = new Scene(root, width, height);
+        
+        String userTheme = AppConfig.getInstance().getProperty("screen.themefile");
+        if ( userTheme == null ) {
+            // No user theme saved, use the default css file packaged in JAR
+            userTheme = this.getClass().getResource("kitchenscr.css").toExternalForm();
+            myScene.getStylesheets().add(userTheme);
+        } else {
+            // Attempt to load the external css file
+            File cssFile = new File(userTheme);
+            if ( cssFile.exists() ) {
+                // The file exists, use it
+                String fileName = cssFile.toURI().toString();
+                myScene.getStylesheets().add(fileName);
+            } else {
+                // The CSS file was not found, so revert to the default
+                userTheme = this.getClass().getResource("kitchenscr.css").toExternalForm();
+                myScene.getStylesheets().add(userTheme);
+            }
+                
+        }
+        
 
         List<Screen> allScreens = Screen.getScreens();
         if ((Boolean.valueOf(AppConfig.getInstance().getProperty("screen.secondscr"))) && (allScreens.size() > 1)) {

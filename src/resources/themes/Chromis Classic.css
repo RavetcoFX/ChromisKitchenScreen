@@ -96,8 +96,8 @@
 }
 
 
-.bump_bar {
-    -fx-font-size: 18pt;
+.complete_button {
+    -fx-font-size: 16pt;
     -fx-font-weight: bold;
     -fx-padding: 2px;
 }
