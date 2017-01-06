@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.text.*?>
-<?import java.lang.*?>
-<?import java.net.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="mainscr" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uk.chromis.kitchenscr.KitchenscrController">
+<AnchorPane fx:id="mainscr" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uk.chromis.kitchenscr.KitchenscrController">
     <stylesheets>
       <URL value="@kitchenscr.css" />
     </stylesheets>
@@ -52,7 +56,7 @@
                                           </AnchorPane>
                                         <AnchorPane fx:id="0" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                                              <children>
-                                                <ListView fx:id="order0items" layoutX="8.0" layoutY="77.0" prefHeight="320.0" prefWidth="216.0" style="-fx-fixed-cell-size: 24;" stylesheets="@kitchenscr.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                <ListView fx:id="order0items" layoutX="8.0" layoutY="77.0" prefWidth="216.0" style="-fx-fixed-cell-size: 34;" stylesheets="@kitchenscr.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                              </children>
                                              <opaqueInsets>
                                                 <Insets />
@@ -77,8 +81,11 @@
                                           </AnchorPane>
                                         <AnchorPane fx:id="1" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                                              <children>
-                                                <ListView fx:id="order1items" layoutX="6.0" prefHeight="320.0" prefWidth="216.0" style="-fx-fixed-cell-size: 24;" stylesheets="@kitchenscr.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                                             </children></AnchorPane>
+                                                <ListView fx:id="order1items" layoutX="6.0" prefWidth="216.0" style="-fx-fixed-cell-size: 34;" stylesheets="@kitchenscr.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                             </children>
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets></AnchorPane>
                                       </items>
                                     </SplitPane>
                                     <SplitPane fx:id="order2" dividerPositions="0.08238636363636363" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" GridPane.columnIndex="2">
@@ -99,7 +106,7 @@
                                           </AnchorPane>
                                         <AnchorPane fx:id="2" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                                              <children>
-                                                <ListView fx:id="order2items" layoutX="8.0" layoutY="77.0" prefHeight="320.0" prefWidth="216.0" style="-fx-fixed-cell-size: 24;" stylesheets="@kitchenscr.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                <ListView fx:id="order2items" layoutX="8.0" layoutY="77.0" prefHeight="320.0" prefWidth="216.0" style="-fx-fixed-cell-size: 34;" stylesheets="@kitchenscr.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                              </children></AnchorPane>
                                       </items>
                                     </SplitPane>      
@@ -121,7 +128,7 @@
                                           </AnchorPane>
                                         <AnchorPane fx:id="3" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                                              <children>
-                                                <ListView fx:id="order3items" layoutX="8.0" layoutY="77.0" prefHeight="320.0" prefWidth="216.0" style="-fx-fixed-cell-size: 24;" stylesheets="@kitchenscr.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                <ListView fx:id="order3items" layoutX="8.0" layoutY="77.0" prefHeight="320.0" prefWidth="216.0" style="-fx-fixed-cell-size: 34;" stylesheets="@kitchenscr.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                              </children></AnchorPane>
                                       </items>
                                     </SplitPane>                                   
@@ -145,7 +152,7 @@
                                           </AnchorPane>
                                         <AnchorPane fx:id="4" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                                              <children>
-                                                <ListView fx:id="order4items" layoutX="8.0" layoutY="77.0" prefHeight="320.0" prefWidth="216.0" style="-fx-fixed-cell-size: 24;" stylesheets="@kitchenscr.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                <ListView fx:id="order4items" layoutX="8.0" layoutY="77.0" prefHeight="320.0" prefWidth="216.0" style="-fx-fixed-cell-size: 34;" stylesheets="@kitchenscr.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                              </children></AnchorPane>
                                       </items>
                                     </SplitPane>                                     
@@ -167,7 +174,7 @@
                                           </AnchorPane>
                                         <AnchorPane fx:id="5" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                                              <children>
-                                                <ListView fx:id="order5items" layoutX="8.0" layoutY="77.0" prefHeight="320.0" prefWidth="216.0" style="-fx-fixed-cell-size: 24;" stylesheets="@kitchenscr.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                <ListView fx:id="order5items" layoutX="8.0" layoutY="77.0" prefWidth="216.0" style="-fx-fixed-cell-size: 34;" stylesheets="@kitchenscr.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                              </children></AnchorPane>
                                       </items>
                                     </SplitPane>
@@ -211,7 +218,7 @@
                                           </AnchorPane>
                                         <AnchorPane fx:id="7" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                                              <children>
-                                                <ListView fx:id="order7items" layoutX="8.0" layoutY="77.0" prefHeight="320.0" prefWidth="216.0" style="-fx-fixed-cell-size: 24;" stylesheets="@kitchenscr.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                <ListView fx:id="order7items" layoutX="8.0" layoutY="77.0" prefHeight="320.0" prefWidth="216.0" style="-fx-fixed-cell-size: 34;" stylesheets="@kitchenscr.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                              </children></AnchorPane>
                                       </items>
                                     </SplitPane>                                                                                                                                                                             
@@ -233,7 +240,7 @@
                                        </children></AnchorPane>
                                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                                        <children>
-                                          <ListView fx:id="orderlist" editable="true" layoutY="267.0" prefHeight="671.0" prefWidth="142.0" style="-fx-fixed-cell-size: 24;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                          <ListView fx:id="orderlist" editable="true" layoutY="267.0" prefHeight="671.0" prefWidth="142.0" style="-fx-fixed-cell-size: 34;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                        </children>
                                     </AnchorPane>
                                 </items>

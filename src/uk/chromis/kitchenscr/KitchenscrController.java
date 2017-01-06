@@ -321,6 +321,7 @@ public class KitchenscrController implements Initializable {
         selectedOrder = null;
         selectedOrderNum = null;
         updateButtonText("");
+        selectOrder(0);
     }
 
     /* N Deppe Sept 2015 - Recall order functionality */
@@ -438,9 +439,13 @@ public class KitchenscrController implements Initializable {
                 ((Label) KitchenscrController.idLabels.get(j)).setText(order.getTicketid());
                 KitchenscrController.startTimes.put(j, order.getOrdertime().getTime());
                 KitchenscrController.orderIds.put(j, order.getOrderid());
-                KitchenscrController.orderLists.get(j).add((order.getQty() > 1 ? order.getQty() + " x " : "") + order.getDetails());
-                if (!"".equals(order.getAttributes())) {
-                    KitchenscrController.orderLists.get(j).add(" ~~ " + order.getAttributes());
+
+                //Horrible Shity hack to stop displaying drinks
+                if (!"004 Ayran".equals(order.getDetails()) && !"005 Becks".equals(order.getDetails()) && !"006 Water".equals(order.getDetails()) && 1 != order.getAuxiliary()) {
+                	KitchenscrController.orderLists.get(j).add((order.getQty() > 1 ? order.getQty() + " x " : "") + order.getDetails().replaceAll("\\d", "").replaceAll("\\s", ""));
+                }
+                if (1 == order.getAuxiliary()) {
+                    KitchenscrController.orderLists.get(j).add(" ~~ " + order.getDetails().replaceAll("\\+", "").replaceAll("\\s", ""));
                 }
                 if (order.getNotes() != null) {
                     KitchenscrController.orderLists.get(j).add(" ~~ " + order.getNotes());

@@ -51,13 +51,13 @@
 }
 
 
-.list-cell 
+.list-cell
 {
-  -fx-font: 10pt "Arial";
+  -fx-font: 13pt "Arial";
   -fx-font-weight: bold;
 }
 
 .clock{
   -fx-font: 16pt "Arial";
-  -fx-font-weight: bold;    
+  -fx-font-weight: bold;
 }
